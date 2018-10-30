@@ -1,0 +1,21 @@
+date=
+VLOCK_MESSAGE="[01;32m
+               _______ _________ _        _______ _________ _
+              (  ____ \__   __/( \      (  ___  )\__   __/( (    /|
+              | (    \/   ) (   | (      | (   ) |   ) (   |  \  ( |
+              | (_____    | |   | |      | (___) |   | |   |   \ | |
+              (_____  )   | |   | |      |  ___  |   | |   | (\ \) |
+                    ) |   | |   | |      | (   ) |   | |   | | \   |
+              /\____) |   | |   | (____/\| )   ( |___) (___| )  \  |
+              \_______)   )_(   (_______/|/     \|\_______/|/    )_)
+
+              01110011 01110100 01101100 01100001 01101001 01101110
+[0m
+ 
+[01;32m  ::::::::::::::::::::::::::::::::::-NOTICE-::::::::::::::::::::::::::::::::::
+    This is a private system that only authorized users are permitted to
+    access. All connections are monitored and recorded. If you are not an
+                  authorized user, disconnect IMMEDIATELY!
+  
+
+Computer locked at $date"
