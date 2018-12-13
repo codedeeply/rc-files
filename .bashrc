@@ -29,6 +29,7 @@ alias idlego="cd /srv/idlerpg/"
 alias irpg_git="sudo -u irpg_git git pull"
 
 alias vi="vim"
+alias irssi="screen irssi"
 
 # For vlock message variable
 update_vlock_message() {
@@ -38,3 +39,9 @@ update_vlock_message() {
 }
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# Allow passphrase entry in term for GPG
+export GPG_TTY=$(tty)
+if [[ -n "$SSH_CONNECTION" ]] ;then
+    export PINENTRY_USER_DATA="USE_CURSES=1"
+fi
