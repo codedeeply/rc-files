@@ -12,6 +12,7 @@ Plug 'scrooloose/nerdtree' "nerdtree
 Plug 'junegunn/fzf', { 'dir': '~/configs/.fzf', 'do': './install --all' } "fzf fuzzy finder
 Plug 'junegunn/fzf.vim' "fzf
 Plug 'editorconfig/editorconfig-vim' "multi-editor tool
+Plug 'tpope/vim-surround' "tag surrounder
 
 " Initialize plugin system
 call plug#end()
