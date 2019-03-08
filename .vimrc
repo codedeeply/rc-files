@@ -13,6 +13,7 @@ Plug 'junegunn/fzf', { 'dir': '~/configs/.fzf', 'do': './install --all' } "fzf f
 Plug 'junegunn/fzf.vim' "fzf
 Plug 'editorconfig/editorconfig-vim' "multi-editor tool
 Plug 'tpope/vim-surround' "tag surrounder
+Plug 'jreybert/vimagit' "git manager in vim
 
 " Initialize plugin system
 call plug#end()
