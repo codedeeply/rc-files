@@ -2,8 +2,8 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=".oh-my-zsh"
-ZSH_CUSTOM=".oh-my-zsh-custom"
+export ZSH="$HOME/configs/.oh-my-zsh"
+ZSH_CUSTOM="$HOME/configs/.oh-my-zsh-custom"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -102,4 +102,4 @@ source $ZSH/oh-my-zsh.sh
 export TERM=xterm-256color
 
 ## Additional server-specific includes; goes to pointer file that gets ignored by git
-source ~/configs/custom/.thisservrc
+source $HOME/configs/custom/.thisservrc
