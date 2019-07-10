@@ -1,0 +1,6 @@
+alias wip="ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'"
+alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -"
+alias wwwgo="cd /var/www/"
+alias errorlog="sudo tail /var/log/apache2/csun.moe-error.log"
+alias la="ls -al"
+alias update-sec=""
