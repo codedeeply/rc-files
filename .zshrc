@@ -101,5 +101,5 @@ source $ZSH/oh-my-zsh.sh
 
 export TERM=xterm-256color
 
-## Additional server-specific includes
-source ~/configs/custom/.stlainrc
+## Additional server-specific includes; goes to pointer file that gets ignored by git
+source ~/configs/custom/.thiservrc
