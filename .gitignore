@@ -1,2 +1,5 @@
 # Ignore irssi config file
 .irssi/config
+
+# Ignore the individual server rc pointer file
+custom/.thisservrc
