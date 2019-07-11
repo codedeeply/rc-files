@@ -1,0 +1,2 @@
+# Commands used universally
+alias rezsh="source ~/.zshrc"
