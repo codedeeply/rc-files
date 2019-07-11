@@ -3,3 +3,4 @@
 # Put the name of the rc file for THIS individual server.
 # This file does NOT get pushed or pulled to Git, it is local.
 source ~/configs/custom/.stlainrc
+source ~/configs/custom/.allrc
