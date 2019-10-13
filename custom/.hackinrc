@@ -1,0 +1,6 @@
+alias stme-control="ssh -i ~/.ssh/stme-control.pem stme@samuelthacker.me"
+alias stme-status="ssh -i ~/.ssh/stme-status.pem stme@status.samuelthacker.me"
+alias maddi-chan="ssh -i ~/.ssh/maddi-chan.pem sthacker@csun.moe"
+alias stlain="ssh -i ~/.ssh/stlain_do.pem stlain@167.71.121.104"
+
+alias stsclients="cd /Volumes/TWO/Dropbox/Samuel Thacker Studios/Clients"
