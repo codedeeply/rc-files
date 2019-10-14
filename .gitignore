@@ -3,3 +3,7 @@
 
 # Ignore the individual server rc pointer file
 custom/.thisservrc
+
+# Ignore .vim stuff derived from :PlugUpdate
+.vim/plugged/*
+.fzf
