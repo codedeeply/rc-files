@@ -16,6 +16,7 @@ Plug 'tpope/vim-surround' "tag surrounder
 Plug 'jreybert/vimagit' "git manager in vim
 Plug '907th/vim-auto-save' "autosave option
 "Plug 'jaredgorski/spacecamp' "spacecamp color scheme
+Plug 'ErichDonGubler/vim-sublime-monokai'
 
 " Initialize plugin system
 call plug#end()
@@ -23,12 +24,13 @@ call plug#end()
 " Theme stuff
 set background=dark
 syntax on "color highlighting
-colorscheme monokai "default teme
+set t_Co=256
 set number "line numbers
 set incsearch
 set hlsearch
 set noshowmode "hide add'l --INSERT-- on bottom
 set laststatus=2 "keep lightlime on
+colorscheme sublimemonokai
 
 imap jj <esc>
 
