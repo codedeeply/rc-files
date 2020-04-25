@@ -103,3 +103,5 @@ export TERM=xterm-256color
 
 ## Additional server-specific includes; goes to pointer file that gets ignored by git
 source $HOME/configs/custom/.thisservrc
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
