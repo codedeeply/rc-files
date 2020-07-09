@@ -105,3 +105,6 @@ export TERM=xterm-256color
 source $HOME/configs/custom/.thisservrc
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
