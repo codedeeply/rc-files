@@ -1,3 +1,10 @@
 # Commands used universally
 alias zshrc="source ~/.zshrc"
 alias rcgo="cd ~/configs/custom"
+
+# Navigation
+alias la="ls -al"
+
+# Useful tools
+alias wip="ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'"
+alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -"
