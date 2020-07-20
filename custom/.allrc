@@ -1,3 +1,8 @@
+# Functions
+function lag(){
+  la | grep $1
+}
+
 # Commands used universally
 alias zshrc="source ~/.zshrc"
 alias rcgo="cd ~/configs/custom"
