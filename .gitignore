@@ -7,3 +7,6 @@ custom/.thisservrc
 # Ignore .vim stuff derived from :PlugUpdate
 .vim/plugged/*
 .fzf
+
+# Ignore .DS_Store
+.DS_Store
