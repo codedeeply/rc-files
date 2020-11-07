@@ -1,4 +1,4 @@
 alias stme-control="ssh -i ~/.ssh/stme-control.pem stme@45.33.39.27"
 alias maddi-chan="ssh -i ~/.ssh/maddi-chan.pem sthacker@csun.moe"
 alias stlain="ssh -i ~/.ssh/stlain_do.pem stlain@167.71.121.104"
-alias seedbox="ssh -i ~/.ssh/seedbox.pem sthacker@lw876.usbx.me"
+alias seedbox="ssh -i ~/.ssh/seedbox sthacker@lw876.usbx.me"
