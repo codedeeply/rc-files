@@ -1,7 +1,5 @@
 alias vi="vim"
-alias dtugo="cd ~/Projects/petco-deployment-tracker"
 
-alias stlain="ssh -i ~/.ssh/stlain stlain@stlain.xen.prgmr.com"
 alias stme-control="ssh -i ~/Documents/stme-control.pem stme@45.33.39.27"
 alias maddi-chan="ssh -i ~/Documents/maddi-chan sthacker@csun.moe"
 
