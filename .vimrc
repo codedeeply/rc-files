@@ -17,6 +17,7 @@ Plug 'jreybert/vimagit' "git manager in vim
 Plug '907th/vim-auto-save' "autosave option
 "Plug 'jaredgorski/spacecamp' "spacecamp color scheme
 Plug 'ErichDonGubler/vim-sublime-monokai'
+Plug 'wakatime/vim-wakatime' "wakatime for vim
 
 " Initialize plugin system
 call plug#end()
