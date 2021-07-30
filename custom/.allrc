@@ -11,6 +11,9 @@ alias rcgo="cd ~/configs/custom"
 alias la="ls -lah"
 alias lat="ls -lath" # la + t (sort by newest first)
 
+# Files
+alias tmf="tail -f $1" #@TODO this needs some work. right now I think it reprints the entire new file? instead of getting new line
+
 # Useful tools
 alias wip="ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'"
 alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -"
