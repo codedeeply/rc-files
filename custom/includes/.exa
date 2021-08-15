@@ -1,0 +1,2 @@
+alias ls="exa -G"
+alias la="exa -lGh"
