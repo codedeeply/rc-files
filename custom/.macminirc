@@ -6,3 +6,6 @@ alias thacker-io="ssh -i ~/.ssh/thacker-io sthacker@143.110.227.205"
 
 # include exa setup
 source $HOME/configs/custom/includes/.exa
+
+# VS Code
+alias code="open -a 'Visual Studio Code'"
