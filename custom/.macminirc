@@ -1,5 +1,11 @@
-alias stme-soar="ssh -i ~/.ssh/stc-soar stme@104.236.222.27"
+alias stme-soar="ssh -i ~/.ssh/stc-soar sthacker@104.236.222.27"
 alias maddi-chan="ssh -i ~/.ssh/maddi-chan.pem sthacker@csun.moe"
 alias stlain="ssh -i ~/.ssh/stlain_do.pem stlain@167.71.121.104"
 alias seedbox="ssh -i ~/.ssh/seedbox codedeeply@lw995.usbx.me"
 alias thacker-io="ssh -i ~/.ssh/thacker-io sthacker@143.110.227.205"
+
+# include exa setup
+source $HOME/configs/custom/includes/.exa
+
+# VS Code
+alias code="open -a 'Visual Studio Code'"
