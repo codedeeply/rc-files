@@ -11,6 +11,12 @@ alias rcgo="cd ~/configs/custom"
 alias la="ls -lah"
 alias lat="ls -lath" # la + t (sort by newest first)
 
+# Files
+
+# Replace cp with rsync so we can see what's going on.
+# See https://askubuntu.com/questions/17275/how-to-show-the-transfer-progress-and-speed-when-copying-files-with-cp
+alias cp="rsync -ah --progress"
+
 # Useful tools
 alias wip="ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'"
 alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -"
