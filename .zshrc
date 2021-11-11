@@ -71,6 +71,9 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Would you like to use another custom folder than $ZSH/custom?
 #ZSH_CUSTOM="~/configs/.oh-my-zsh-custom"
 
+# Stop instant prompt warning because we're outputting content
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
+
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
