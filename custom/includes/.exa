@@ -1,2 +1,15 @@
-alias ls="exa -G"
-alias la="exa -lGh"
+# exa Startup Configuration
+
+# If exa is installed on the system, make things pretty!
+# We're looking for the EXA_ON_STARTUP variable set (default true from .allrc)
+
+# Only run if exa is installed
+if which exa &> /dev/null
+then
+  if [[ -v EXA_ON_STARTUP ]]; then
+    alias ls="exa -G"
+    alias la="exa -lGh"
+  fi
+else
+  zsh_load_msg 1 "exa not found. Please install exa or set the EXA_ON_STARTUP flag to false in your local .thisservrc file."
+fi
