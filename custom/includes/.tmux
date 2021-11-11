@@ -8,8 +8,8 @@
 # TODO BUG -- this crashes/quits the session right after starting it.
 if which tmux &> /dev/null
 then
-  if [[ -v TMUX_ON_STARTUP ]]; then
-    exec tmux new-session
+  if [[ -z "$TMUX" && TMUX_ON_STARTUP ]]; then
+    exec tmux new-session -A -s workspace
   fi
 else
   zsh_load_msg 1 "tmux not found. Please install tmux or set the TMUX_ON_STARTUP flag to false in your local .thisservrc file."
