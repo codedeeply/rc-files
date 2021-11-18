@@ -8,7 +8,7 @@ if which exa &> /dev/null
 then
   if [[ -v EXA_ON_STARTUP ]]; then
     alias ls="exa -G"
-    alias la="exa -lGh"
+    alias la="exa -laGh"
   fi
 else
   zsh_load_msg 1 "exa not found. Please install exa or set the EXA_ON_STARTUP flag to false in your local .thisservrc file."
