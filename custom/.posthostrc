@@ -6,8 +6,7 @@ source $HOME/configs/custom/includes/.exa
 
 # .tmux
 # Run tmux last; this may be changed by individual host file so it's run at end of startup
-# TODO -- DO NOT USE -- currently immediately closes session after load.
-#source $HOME/configs/custom/includes/.tmux
+source $HOME/configs/custom/includes/.tmux
 
 # Good to go?
 if [[ ! $ZSH_ERROR_MSG || ! $ZSH_WARN_MSG ]] then

@@ -1,5 +1,15 @@
-## Server-specific includes; goes to pointer file that gets ignored by git
-## This goes first as not to cause instant prompt issues
+# .zshrc
+# First file checked by ZSH for instructions.
+
+# Check to see if .thisservrc exists...
+if [[ ! -f "$HOME/configs/custom/.thisservrc" ]]; then
+  printf "[ERROR] Your .thisservrc file could not be found! Ensure it's in the /configs/custom/ directory and try again. A base file can be found at ./custom/.examplethisservrc.\n"
+  read -s -k '?Press any key to load stock ZSH.'
+  return -1
+fi
+
+# Server-specific includes; goes to pointer file that gets ignored by git (see ./custom/.examplethisservrc for details).
+# This goes first as not to cause instant prompt issues with P10k.
 source $HOME/configs/custom/.thisservrc
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.

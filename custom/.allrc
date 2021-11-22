@@ -1,11 +1,11 @@
 # .allrc
 # Run by .zshrc as first custom config file definition.
 
-# Clean variables
+## Reset load message custom variables ##
 export ZSH_LOAD_ERROR=false
 export ZSH_LOAD_WARN=false
 
-# Functions
+## Functions ##
 
 # zsh_load_msg <type: 0,1,2> <message>
 # :variablize initial load messages
@@ -38,10 +38,10 @@ function zsh_load_msg() {
       export ZSH_LOAD_ERROR=true
       return -1
     elif [[ $ZSH_LOAD_TYPE == "WARNING" ]] then # did we get warned?
-      export ZSG_LOAD_WARN=true
+      export ZSH_LOAD_WARN=true
       printf "[%s] zsh startup: %s\n" $ZSH_LOAD_TYPE $2
     else # By default we only want to display warns and errors.
-      if [[ $ZSH_LOAD_TYPE == "NOTICE" && ! $ZSH_FORCE_NOTICES ]] then
+      if [[ ( $ZSH_LOAD_TYPE == "NOTICE" ) && ( $ZSH_FORCE_NOTICES ) ]] then
         return 0
       else
         printf "[%s] zsh startup: %s\n" $ZSH_LOAD_TYPE $2
@@ -52,6 +52,12 @@ function zsh_load_msg() {
 
 zsh_load_msg 0 "Loading configuration..."
 
+source $HOME/configs/custom/includes/.debugmode
+
+if [ $ZSH_DEBUG_MODE ]; then
+  zsh_load_msg 0 "Debug mode is enabled."
+fi
+
 # lag
 # :combine file listing and search (not to be confused with a lag switch)
 function lag() {
@@ -59,7 +65,7 @@ function lag() {
 }
 
 
-# Commands used universally
+## Universal Commands ##
 
 # zshrc
 # :reload zsh
@@ -69,30 +75,25 @@ alias zshrc="source ~/.zshrc"
 # :quickly go to the custom zsh configuration folder
 alias rcgo="cd ~/configs/custom"
 
-# Navigation
+## Navigation
 
 # la
+# :list all files in folder (including hidden)
+# !note. this command may be overwritten if exa is enabled!
 alias la="ls -lah"
 
 # lat
-alias lat="ls -lath" # la + t (sort by newest first)
+# :list all files in folder (including hidden), sorted by newest first
+# !note. this command may be overwritten if exa is enabled!
+alias lat="ls -lath"
 
-# Files
+## Files
 
 # Replace cp with rsync so we can see what's going on.
 # See https://askubuntu.com/questions/17275/how-to-show-the-transfer-progress-and-speed-when-copying-files-with-cp
 alias cp="rsync -ah --progress"
 
-# Useful tools
+## Useful tools
+
 alias wip="ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'"
 alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -"
-
-# Startup settings
-
-# TMUX_ON_STARTUP
-# Boolean; default true
-export TMUX_ON_STARTUP=true
-
-# EXA_ON_STARTUP
-# Boolean; default true
-export EXA_ON_STARTUP=true
