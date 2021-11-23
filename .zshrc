@@ -1,3 +1,17 @@
+# .zshrc
+# First file checked by ZSH for instructions.
+
+# Check to see if .thisservrc exists...
+if [[ ! -f "$HOME/configs/custom/.thisservrc" ]]; then
+  printf "[ERROR] Your .thisservrc file could not be found! Ensure it's in the /configs/custom/ directory and try again. A base file can be found at ./custom/.examplethisservrc.\n"
+  read -s -k '?Press any key to load stock ZSH.'
+  return -1
+fi
+
+# Server-specific includes; goes to pointer file that gets ignored by git (see ./custom/.examplethisservrc for details).
+# This goes first as not to cause instant prompt issues with P10k.
+source $HOME/configs/custom/.thisservrc
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -71,6 +85,9 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Would you like to use another custom folder than $ZSH/custom?
 #ZSH_CUSTOM="~/configs/.oh-my-zsh-custom"
 
+# Stop instant prompt warning because we're outputting content
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
+
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -106,10 +123,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export TERM=xterm-256color
-
-## Additional server-specific includes; goes to pointer file that gets ignored by git
-source $HOME/configs/custom/.thisservrc
+export TERM=screen-256color
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

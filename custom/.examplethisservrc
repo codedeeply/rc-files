@@ -1,0 +1,32 @@
+# .examplethisservrc
+
+# This is an example .thisservrc file. .thisservrc is the main evoker for all custom files in this directory. Since shell environments can differ in regard to their unique requirements, this file is not checked into git. Use this example as a base, and modify according to your (and your individual system's) needs.
+
+# This file is REQUIRED for this custom setup to work.
+
+######################
+
+## Startup Settings ##
+
+# TMUX_ON_STARTUP
+# Boolean; default true
+# :See ./custom/includes/.tmux for action
+export TMUX_ON_STARTUP=true
+
+# EXA_ON_STARTUP
+# Boolean; default true
+# :See ./custom/includes/.exa for action
+export EXA_ON_STARTUP=true
+
+# ZSH_FORCE_NOTICES
+# Boolean; default false
+# :Flags whether to display messages of ZSH_LOAD_TYPE "NOTICE" if called
+export ZSH_FORCE_NOTICES=false
+
+# DEBUG_MODE
+# Boolean; default false
+# :See ./custom/includes/.debugmode for action
+export ZSH_DEBUG_MODE=false
+
+source ~/configs/custom/.allrc
+source ~/configs/custom/.posthostrc

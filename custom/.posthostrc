@@ -1,0 +1,16 @@
+# .posthostrc
+# Evoked by .thisservrc after all individual host rc files have run. (This should be the last stop.)
+
+# .exa
+source $HOME/configs/custom/includes/.exa
+
+# .tmux
+# Run tmux last; this may be changed by individual host file so it's run at end of startup
+source $HOME/configs/custom/includes/.tmux
+
+# Good to go?
+if [[ ! $ZSH_ERROR_MSG || ! $ZSH_WARN_MSG ]] then
+  zsh_load_msg 0 "All configs loaded :)"
+else
+  zsh_load_msg 1 "One or more configurations failed to load. Check output log above."
+fi
