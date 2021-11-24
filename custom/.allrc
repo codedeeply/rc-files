@@ -58,6 +58,26 @@ if [ $ZSH_DEBUG_MODE ]; then
   zsh_load_msg 0 "Debug mode is enabled."
 fi
 
+# Check if Tmux Plugin Manager is installed
+if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
+  zsh_load_msg 1 "Tmux Plugin Manager isn't installed at the expected directory"
+  printf '%s' 'Install now? [y/N]'
+  read tpm_warn_response
+  case "$tpm_warn_response" in
+      [yY][eE][sS]|[yY]) 
+          install_tmux_plugin_mgr
+          ;;
+      *)
+          printf 'Ok, not installing.'
+          ;;
+  esac
+fi
+
+function install_tmux_plugin_mgr() {
+  printf "oh we installin'"
+  #exec "git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm"
+}
+
 # lag
 # :combine file listing and search (not to be confused with a lag switch)
 function lag() {
