@@ -6,7 +6,7 @@
 # Only run if exa is installed
 if which exa &> /dev/null
 then
-  if [[ -v EXA_ON_STARTUP ]]; then
+  if [[ -v $EXA_ON_STARTUP ]]; then
     alias ls="exa -G"
     alias la="exa -laGh"
   fi
