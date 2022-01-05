@@ -119,3 +119,10 @@ alias cp="rsync -ah --progress"
 
 alias wip="ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'"
 alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -"
+
+# Weather
+# @TODO accept optional alternative zips (+ cities?)
+alias swea="curl wttr.in/23219\?1nqF"
+alias weather="curl wttr.in/23219\?F"
+alias weatherbox="clear && curl wttr.in/23219\?1nqF && read  -n 1 -p"
+alias weatherrec="clear && curl wttr.in/23219\?2qF && read  -n 1 -p"
