@@ -99,15 +99,20 @@ alias rcgo="cd ~/configs/custom"
 
 ## Navigation
 
-# la
-# :list all files in folder (including hidden)
-# !note. this command may be overwritten if exa is enabled!
-alias la="ls -lah"
+# We only want to set the la* aliases if exa is disabled
 
-# lat
-# :list all files in folder (including hidden), sorted by newest first
-# !note. this command may be overwritten if exa is enabled!
-alias lat="ls -lath"
+if [[ ! -v $EXA_ON_STARTUP ]]; then
+  # la
+  # :list all files in folder (including hidden)
+  # !note. this command may be overwritten if exa is enabled!
+  alias la="ls -lah"
+
+  # lat
+  # :list all files in folder (including hidden), sorted by newest first
+  # !note. this command may be overwritten if exa is enabled!
+  alias lat="ls -lath"
+
+fi
 
 ## Files
 
