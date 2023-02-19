@@ -86,6 +86,12 @@ function lag() {
   la | grep $1
 }
 
+# unrarall
+# :unrar all *.rar files in a given directory (resursive depth)
+function unrarall() {
+  find $1 -name '*.rar' -execdir unrar e -o- {} \;
+}
+
 
 ## Universal Commands ##
 
@@ -119,6 +125,7 @@ alias cp="rsync -ah --progress"
 
 alias wip="ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'"
 alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -"
+alias unrarall="find $1 -name '*.rar' -execdir unrar e -o- {} \;"
 
 # Weather
 # @TODO accept optional alternative zips (+ cities?)
