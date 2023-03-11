@@ -119,3 +119,21 @@ alias swea="curl wttr.in/23219\?1nqF"
 alias weather="curl wttr.in/23219\?F"
 alias weatherbox="clear && curl wttr.in/23219\?1nqF && read  -n 1 -p"
 alias weatherrec="clear && curl wttr.in/23219\?2qF && read  -n 1 -p"
+
+
+## Dependent Functions ##
+
+# lag
+# :combine file listing and search (not to be confused with a lag switch)
+function lag() {
+  la | grep $1
+}
+
+# Perplex
+# :run Perplex
+function perplex() {
+  cd ~/Projects/Perplex
+  venv
+  poetry install
+  ./start.ps1
+}
