@@ -5,7 +5,7 @@
 export ZSH_LOAD_ERROR=false
 export ZSH_LOAD_WARN=false
 
-## Functions ##
+## Core Functions ##
 
 # zsh_load_msg <type: 0,1,2> <message>
 # :variablize initial load messages
@@ -79,13 +79,6 @@ if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
           ;;
   esac
 fi
-
-# lag
-# :combine file listing and search (not to be confused with a lag switch)
-function lag() {
-  la | grep $1
-}
-
 
 ## Universal Commands ##
 
