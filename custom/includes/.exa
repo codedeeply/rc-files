@@ -6,9 +6,10 @@
 # Only run if exa is installed
 if which exa &> /dev/null
 then
-  if [[ -v $EXA_ON_STARTUP ]]; then
+  if $EXA_ON_STARTUP; then
     alias ls="exa -G"
     alias la="exa -laGh"
+    #alias lat="exa -lath" # TODO figure out how to do in exa, lazy rn
   fi
 else
   zsh_load_msg 1 "exa not found. Please install exa or set the EXA_ON_STARTUP flag to false in your local .thisservrc file."
