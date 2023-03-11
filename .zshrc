@@ -8,10 +8,6 @@ if [[ ! -f "$HOME/configs/custom/.thisservrc" ]]; then
   return -1
 fi
 
-# Server-specific includes; goes to pointer file that gets ignored by git (see ./custom/.examplethisservrc for details).
-# This goes first as not to cause instant prompt issues with P10k.
-source $HOME/configs/custom/.thisservrc
-
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -98,6 +94,10 @@ plugins=(git vi-mode sudo zsh-syntax-highlighting zsh-autosuggestions)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+
+# Server-specific includes; goes to pointer file that gets ignored by git (see ./custom/.examplethisservrc for details).
+# This used to go first as not to cause instant prompt issues with P10k, but was moved down to avoid alias overwriting by OMZ.
+source $HOME/configs/custom/.thisservrc
 
 # export MANPATH="/usr/local/man:$MANPATH"
 

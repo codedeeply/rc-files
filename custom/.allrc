@@ -5,13 +5,11 @@
 export ZSH_LOAD_ERROR=false
 export ZSH_LOAD_WARN=false
 
-## Functions ##
+## Core Functions ##
 
 # zsh_load_msg <type: 0,1,2> <message>
 # :variablize initial load messages
 function zsh_load_msg() {
-  # printf "1 is %s\n" $1
-  # printf "2 is %s\n" $2
   case $1 in
 
     0)
@@ -80,13 +78,6 @@ if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
   esac
 fi
 
-# lag
-# :combine file listing and search (not to be confused with a lag switch)
-function lag() {
-  la | grep $1
-}
-
-
 ## Universal Commands ##
 
 # zshrc
@@ -98,21 +89,18 @@ alias zshrc="source ~/.zshrc"
 alias rcgo="cd ~/configs/custom"
 
 ## Navigation
+# la
+# :list all files in folder (including hidden)
+# !note. this command may be overwritten if exa is enabled!
+alias la="ls -lah"
 
-# We only want to set the la* aliases if exa is disabled
+# lat
+# :list all files in folder (including hidden), sorted by newest first
+# !note. this command may be overwritten if exa is enabled!
+alias lat="ls -lath"
 
-if [[ ! -v $EXA_ON_STARTUP ]]; then
-  # la
-  # :list all files in folder (including hidden)
-  # !note. this command may be overwritten if exa is enabled!
-  alias la="ls -lah"
-
-  # lat
-  # :list all files in folder (including hidden), sorted by newest first
-  # !note. this command may be overwritten if exa is enabled!
-  alias lat="ls -lath"
-
-fi
+# Use exa if it's installed, and wanted
+source $HOME/configs/custom/includes/.exa
 
 ## Files
 
@@ -124,3 +112,28 @@ alias cp="rsync -ah --progress"
 
 alias wip="ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'"
 alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -"
+
+# Weather
+# @TODO accept optional alternative zips (+ cities?)
+alias swea="curl wttr.in/23219\?1nqF"
+alias weather="curl wttr.in/23219\?F"
+alias weatherbox="clear && curl wttr.in/23219\?1nqF && read  -n 1 -p"
+alias weatherrec="clear && curl wttr.in/23219\?2qF && read  -n 1 -p"
+
+
+## Dependent Functions ##
+
+# lag
+# :combine file listing and search (not to be confused with a lag switch)
+function lag() {
+  la | grep $1
+}
+
+# Perplex
+# :run Perplex
+function perplex() {
+  cd ~/Projects/Perplex
+  venv
+  poetry install
+  ./start.ps1
+}
