@@ -10,3 +10,6 @@ alias code="open -a 'Visual Studio Code'"
 # Python
 alias python="python3"
 alias venv="python -m virtualenv .venv && cd .venv/bin && source ./activate && pip freeze && ../../ && pip install -r requirments.txt"
+
+# Laravel Sail
+alias sail='[ -f sail ] && zsh sail || zsh vendor/bin/sail'
