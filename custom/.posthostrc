@@ -1,8 +1,8 @@
 # .posthostrc
 # Evoked by .thisservrc after all individual host rc files have run. (This should be the last stop.)
 
-# .exa
-source $HOME/configs/custom/includes/.exa
+# .eza
+source $HOME/configs/custom/includes/.eza
 
 # .tmux
 # Run tmux last; this may be changed by individual host file so it's run at end of startup

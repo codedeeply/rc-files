@@ -91,16 +91,16 @@ alias rcgo="cd ~/configs/custom"
 ## Navigation
 # la
 # :list all files in folder (including hidden)
-# !note. this command may be overwritten if exa is enabled!
+# !note. this command may be overwritten if eza is enabled!
 alias la="ls -lah"
 
 # lat
 # :list all files in folder (including hidden), sorted by newest first
-# !note. this command may be overwritten if exa is enabled!
+# !note. this command may be overwritten if eza is enabled!
 alias lat="ls -lath"
 
-# Use exa if it's installed, and wanted
-source $HOME/configs/custom/includes/.exa
+# Use eza if it's installed, and wanted
+source $HOME/configs/custom/includes/.eza
 
 ## Files
 

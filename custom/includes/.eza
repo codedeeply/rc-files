@@ -1,0 +1,16 @@
+# eza Startup Configuration
+
+# If eza is installed on the system, make things pretty!
+# We're looking for the eza_ON_STARTUP variable set (default true from .allrc)
+
+# Only run if eza is installed
+if which eza &> /dev/null
+then
+  if $eza_ON_STARTUP; then
+    alias ls="eza -G"
+    alias la="eza -laGh"
+    #alias lat="eza -lath" # TODO figure out how to do in eza, lazy rn
+  fi
+else
+  zsh_load_msg 1 "eza not found. Please install eza or set the EZA_ON_STARTUP flag to false in your local .thisservrc file."
+fi
