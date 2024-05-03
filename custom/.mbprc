@@ -13,3 +13,6 @@ alias venv="python -m virtualenv .venv && cd .venv/bin && source ./activate && p
 
 # Laravel Sail
 alias sail='[ -f sail ] && zsh sail || zsh vendor/bin/sail'
+
+# Tailscale
+alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
