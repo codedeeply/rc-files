@@ -9,7 +9,7 @@ source $HOME/configs/custom/includes/.eza
 source $HOME/configs/custom/includes/.tmux
 
 # Good to go?
-if [[ ! $ZSH_ERROR_MSG || ! $ZSH_WARN_MSG ]] then
+if [[ ! $ZSH_ERROR_MSG || ! $ZSH_WARN_MSG ]]; then
   zsh_load_msg 0 "All configs loaded :)"
 else
   zsh_load_msg 1 "One or more configurations failed to load. Check output log above."

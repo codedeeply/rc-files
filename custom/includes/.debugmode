@@ -4,7 +4,7 @@
 # - Turns on showing notice messages
 # - Prompt for enter to continue before tmux fires (which hides startup messages)
 
-if [[ $ZSH_DEBUG_MODE ]]; then
+if [[ "$ZSH_DEBUG_MODE" == "true" ]]; then
   # Turn on notice message
   export ZSH_FORCE_NOTICES=true
 fi
