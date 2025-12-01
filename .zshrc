@@ -123,6 +123,8 @@ source $HOME/configs/custom/.thisservrc
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 export TERM=screen-256color
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -132,7 +134,28 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# pyenv settings
+# nvm
+export NVM_DIR="$HOME/.nvm"
+ [ -s "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" ] && \. "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" # This loads nvm
+ [ -s "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" ] && \. "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
+
+# pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+
+export PATH=$PATH:/Users/sam/.spicetify
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/sam/.cache/lm-studio/bin"
+
+# pnpm
+export PNPM_HOME="/Users/sam/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+# uv
+export PATH="/Users/sam/.local/bin:$PATH"

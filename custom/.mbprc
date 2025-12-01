@@ -16,3 +16,6 @@ alias sail='[ -f sail ] && zsh sail || zsh vendor/bin/sail'
 
 # Tailscale
 alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
+
+# New Dropbox
+alias dropbox='~/Library/CloudStorage/Dropbox'
