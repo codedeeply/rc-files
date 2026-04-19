@@ -10,3 +10,11 @@ custom/.thisservrc
 
 # Ignore .DS_Store
 .DS_Store
+
+# Ignore node modules
+node_modules/
+package-lock.json
+
+# Ignore legacy Oh-My-Zsh scaffolding if it ever gets regenerated locally
+.oh-my-zsh/
+.oh-my-zsh-custom/

@@ -7,75 +7,45 @@ export ZSH_LOAD_WARN=false
 
 ## Core Functions ##
 
-# zsh_load_msg <type: 0,1,2> <message>
-# :variablize initial load messages
+# zsh_load_msg <type: 0|1|2> <message>
+# Emits startup log lines to stderr (never stdout — stdout during init
+# trips p10k/starship instant-prompt detection). NOTICEs are silent by
+# default; set ZSH_DEBUG_MODE=true (or ZSH_FORCE_NOTICES=true) to see them.
 function zsh_load_msg() {
+  local type msg
   case $1 in
-
-    0)
-      export ZSH_LOAD_TYPE="NOTICE"
-      ;;
-    
-    1)
-      export ZSH_LOAD_TYPE="WARNING"
-      ;;
-
-    2)
-      export ZSH_LOAD_TYPE="ERROR"
-      ;;
-
-    *)
-      export ZSH_LOAD_TYPE="??? invalid type ???"
-      ;;
+    0) type="NOTICE"  ;;
+    1) type="WARNING" ;;
+    2) type="ERROR"   ;;
+    *) type="???"     ;;
   esac
+  msg=$2
 
-  #if [[! -v ZSH_QUIET_STARTUP ]]; then # TODO -- errors really be supressed even if quiet?
-    # exit on error
-    if [[ $ZSH_LOAD_TYPE == "ERROR" ]] then
-      printf "\a[%s] zsh startup: %s\n" $ZSH_LOAD_TYPE $2 # \a triggers an alarm on errors
-      export ZSH_LOAD_ERROR=true
-      return -1
-    elif [[ $ZSH_LOAD_TYPE == "WARNING" ]] then # did we get warned?
-      export ZSH_LOAD_WARN=true
-      printf "[%s] zsh startup: %s\n" $ZSH_LOAD_TYPE $2
-    else # By default we only want to display warns and errors.
-      if [[ ( $ZSH_LOAD_TYPE == "NOTICE" ) && ( $ZSH_FORCE_NOTICES ) ]] then
-        return 0
-      else
-        printf "[%s] zsh startup: %s\n" $ZSH_LOAD_TYPE $2
-      fi
+  if [[ $type == "ERROR" ]]; then
+    printf "\a[%s] zsh startup: %s\n" $type $msg >&2
+    export ZSH_LOAD_ERROR=true
+    return 1
+  elif [[ $type == "WARNING" ]]; then
+    export ZSH_LOAD_WARN=true
+    printf "[%s] zsh startup: %s\n" $type $msg >&2
+  else
+    if [[ "$ZSH_DEBUG_MODE" == "true" || "$ZSH_FORCE_NOTICES" == "true" ]]; then
+      printf "[%s] zsh startup: %s\n" $type $msg >&2
     fi
-  #fi
+  fi
 }
 
 zsh_load_msg 0 "Loading configuration..."
 
 source $HOME/configs/custom/includes/.debugmode
 
-if [ $ZSH_DEBUG_MODE ]; then
+if [[ "$ZSH_DEBUG_MODE" == "true" ]]; then
   zsh_load_msg 0 "Debug mode is enabled."
 fi
 
-function install_tmux_plugin_mgr() {
-  zsh_load_msg 0 "Installing Tmux Plugin Manager"
-  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-  zsh_load_msg 0 "Install completed."
-  source $HOME/.zshrc
-}
-
-# Check if Tmux Plugin Manager is installed
-if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
-  zsh_load_msg 1 "Tmux Plugin Manager isn't installed at the expected directory"
-  printf '%s' 'Install now? [y/N]'
-  read tpm_warn_response
-  case "$tpm_warn_response" in
-      [yY][eE][sS]|[yY]) 
-          install_tmux_plugin_mgr
-          ;;
-      *)
-          printf 'Ok, not installing.'
-          ;;
-  esac
+# Non-blocking tmux plugin manager check (no interactive prompt at startup).
+if [[ ! -d "$HOME/.tmux/plugins/tpm" ]]; then
+  zsh_load_msg 1 "Tmux Plugin Manager missing. Install: git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm"
 fi
 
 ## Universal Commands ##
@@ -91,16 +61,13 @@ alias rcgo="cd ~/configs/custom"
 ## Navigation
 # la
 # :list all files in folder (including hidden)
-# !note. this command may be overwritten if exa is enabled!
+# !note. this command may be overwritten if eza is enabled!
 alias la="ls -lah"
 
 # lat
 # :list all files in folder (including hidden), sorted by newest first
-# !note. this command may be overwritten if exa is enabled!
+# !note. this command may be overwritten if eza is enabled!
 alias lat="ls -lath"
-
-# Use exa if it's installed, and wanted
-source $HOME/configs/custom/includes/.exa
 
 ## Files
 

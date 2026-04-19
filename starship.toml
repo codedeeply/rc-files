@@ -1,0 +1,29 @@
+# Starship prompt config. Symlinked to ~/.config/starship.toml.
+# Two-line prompt: cwd + git on top, character on the next line.
+
+add_newline = true
+
+format = """
+$directory$git_branch$git_status$cmd_duration
+$character"""
+
+[directory]
+truncation_length = 3
+truncate_to_repo = true
+style = "bold cyan"
+
+[git_branch]
+symbol = " "
+style = "purple"
+
+[git_status]
+style = "yellow"
+
+[cmd_duration]
+min_time = 2000
+format = "took [$duration]($style) "
+style = "dim yellow"
+
+[character]
+success_symbol = "[❯](green)"
+error_symbol = "[❯](red)"
