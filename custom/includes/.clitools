@@ -1,0 +1,58 @@
+# Modern CLI Tool Aliases
+# Mirrors the .eza pattern — opt in via CLITOOLS_ON_STARTUP=true in .thisservrc.
+
+if [[ "$CLITOOLS_ON_STARTUP" != "true" ]]; then
+  return 0
+fi
+
+# ── bat (cat replacement) ──────────────────────────────────────────
+if command -v bat &> /dev/null; then
+  alias cat='bat --paging=never --style=plain'
+  alias catp='bat'  # full paging + styling variant
+  export BAT_THEME='Catppuccin Mocha'
+else
+  zsh_load_msg 1 "bat not found. Install: brew install bat (or set CLITOOLS_ON_STARTUP=false)"
+fi
+
+# ── fd (find replacement) ──────────────────────────────────────────
+if command -v fd &> /dev/null; then
+  alias find='fd'
+  alias rfind='command find'  # escape hatch for real find
+else
+  zsh_load_msg 1 "fd not found. Install: brew install fd"
+fi
+
+# ── zoxide (cd replacement) ────────────────────────────────────────
+if command -v zoxide &> /dev/null; then
+  eval "$(zoxide init zsh)"
+  alias cd='z'
+else
+  zsh_load_msg 1 "zoxide not found. Install: brew install zoxide"
+fi
+
+# ── dust (du replacement) ──────────────────────────────────────────
+if command -v dust &> /dev/null; then
+  alias du='dust'
+else
+  zsh_load_msg 1 "dust not found. Install: brew install dust"
+fi
+
+# ── duf (df replacement) ───────────────────────────────────────────
+if command -v duf &> /dev/null; then
+  alias df='duf'
+else
+  zsh_load_msg 1 "duf not found. Install: brew install duf"
+fi
+
+# ── lazygit (git UI) ───────────────────────────────────────────────
+if command -v lazygit &> /dev/null; then
+  alias lg='lazygit'
+else
+  zsh_load_msg 1 "lazygit not found. Install: brew install lazygit"
+fi
+
+# Tools below stay unaliased (used directly):
+#   delta — invoked via gitconfig (core.pager)
+#   sd    — behavior differs from sed; explicit use only
+#   yq    — no common alias conflicts; explicit use
+#   tldr  — provided by tealdeer binary

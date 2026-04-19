@@ -18,6 +18,18 @@ export TMUX_ON_STARTUP=true
 # :See ./custom/includes/.eza for action
 export EZA_ON_STARTUP=true
 
+# CLITOOLS_ON_STARTUP
+# Boolean; default true
+# :Enables modern CLI swaps (bat, fd, zoxide, dust, duf, lazygit).
+# :See ./custom/includes/.clitools for action
+export CLITOOLS_ON_STARTUP=true
+
+# NVIM_ALIAS_ON_STARTUP
+# Boolean; default false (opt-in per host — many still want vim).
+# :Aliases vim/vi -> nvim and exports EDITOR/VISUAL=nvim.
+# :See ./custom/includes/.nvim for action
+export NVIM_ALIAS_ON_STARTUP=false
+
 # ZSH_FORCE_NOTICES
 # Boolean; default false
 # :Flags whether to display messages of ZSH_LOAD_TYPE "NOTICE" if called

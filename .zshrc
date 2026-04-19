@@ -44,8 +44,9 @@ eval "$(mise activate zsh)"
 # bun completions (interactive only)
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
-# Ghostty shell integration — explicit for tmux sessions where the auto-inject
-# doesn't re-run. Harmless no-op outside Ghostty.
-if [[ -n "$GHOSTTY_RESOURCES_DIR" ]]; then
+# Ghostty shell integration is handled by `shell-integration = zsh` in
+# ~/.config/ghostty/config. This manual source stays as a fallback for tmux
+# sessions where auto-inject doesn't re-run.
+if [[ -n "$GHOSTTY_RESOURCES_DIR" && -z "$GHOSTTY_SHELL_FEATURES" ]]; then
   source "$GHOSTTY_RESOURCES_DIR/shell-integration/zsh/ghostty-integration" 2>/dev/null
 fi

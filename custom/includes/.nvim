@@ -1,0 +1,15 @@
+# Neovim alias
+# Gated by NVIM_ALIAS_ON_STARTUP (default false) in .thisservrc — opt in per host.
+
+if [[ "$NVIM_ALIAS_ON_STARTUP" != "true" ]]; then
+  return 0
+fi
+
+if command -v nvim &> /dev/null; then
+  alias vim='nvim'
+  alias vi='nvim'
+  export EDITOR='nvim'
+  export VISUAL='nvim'
+else
+  zsh_load_msg 1 "nvim not found. Install: brew install neovim (or set NVIM_ALIAS_ON_STARTUP=false)"
+fi

@@ -4,6 +4,12 @@
 # .eza
 source $HOME/configs/custom/includes/.eza
 
+# .clitools — bat/fd/zoxide/dust/duf/lazygit aliases (gated by CLITOOLS_ON_STARTUP)
+source $HOME/configs/custom/includes/.clitools
+
+# .nvim — vim→nvim alias + EDITOR export (gated by NVIM_ALIAS_ON_STARTUP)
+source $HOME/configs/custom/includes/.nvim
+
 # .tmux
 # Run tmux last; this may be changed by individual host file so it's run at end of startup
 source $HOME/configs/custom/includes/.tmux
