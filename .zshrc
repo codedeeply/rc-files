@@ -15,9 +15,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# If you come from bash you might have to change your $PATH.
-export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH"
-
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/configs/.oh-my-zsh"
 ZSH_CUSTOM="$HOME/configs/.oh-my-zsh-custom"
@@ -123,10 +120,6 @@ source $HOME/configs/custom/.thisservrc
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
-export TERM=screen-256color
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -142,28 +135,8 @@ export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-export PATH=$PATH:/Users/sam/.spicetify
-
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:/Users/sam/.cache/lm-studio/bin"
-
-# pnpm
-export PNPM_HOME="/Users/sam/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
-
-# bun completions
-[ -s "/Users/sam/.bun/_bun" ] && source "/Users/sam/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
+# bun completions (interactive only)
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # Claude Code - always use Node 20 (Node 21 has SSE bug)
 alias claude="/Users/sam/.nvm/versions/node/v20.19.6/bin/claude"
-
-# opencode
-export PATH=/Users/sam/.opencode/bin:$PATH
