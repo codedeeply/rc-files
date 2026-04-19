@@ -16,8 +16,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/configs/.oh-my-zsh"
@@ -130,8 +129,6 @@ export TERM=screen-256color
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
@@ -158,9 +155,6 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-# uv
-export PATH="/Users/sam/.local/bin:$PATH"
-
 # bun completions
 [ -s "/Users/sam/.bun/_bun" ] && source "/Users/sam/.bun/_bun"
 
@@ -173,4 +167,3 @@ alias claude="/Users/sam/.nvm/versions/node/v20.19.6/bin/claude"
 
 # opencode
 export PATH=/Users/sam/.opencode/bin:$PATH
-export PATH="$HOME/.local/bin:$PATH"
