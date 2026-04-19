@@ -8,16 +8,6 @@ if [[ ! -f "$HOME/configs/custom/.thisservrc" ]]; then
   return -1
 fi
 
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
-# Instant-prompt hack no longer needed with zinit; kept commented for reference.
-typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
-
 # zinit bootstrap (auto-installs on first run).
 ZINIT_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/zinit/zinit.git"
 if [[ ! -f $ZINIT_HOME/zinit.zsh ]]; then
@@ -69,8 +59,8 @@ source $HOME/configs/custom/.thisservrc
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# Prompt
+eval "$(starship init zsh)"
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
