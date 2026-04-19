@@ -16,7 +16,8 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH="$HOME/.local/bin:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/configs/.oh-my-zsh"
@@ -159,3 +160,17 @@ esac
 
 # uv
 export PATH="/Users/sam/.local/bin:$PATH"
+
+# bun completions
+[ -s "/Users/sam/.bun/_bun" ] && source "/Users/sam/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Claude Code - always use Node 20 (Node 21 has SSE bug)
+alias claude="/Users/sam/.nvm/versions/node/v20.19.6/bin/claude"
+
+# opencode
+export PATH=/Users/sam/.opencode/bin:$PATH
+export PATH="$HOME/.local/bin:$PATH"
