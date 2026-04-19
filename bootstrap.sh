@@ -87,6 +87,9 @@ link "$CONFIGS/.vimrc"           "$HOME/.vimrc"
 link "$CONFIGS/gitconfig"        "$HOME/.gitconfig"
 link "$CONFIGS/starship.toml"    "$HOME/.config/starship.toml"
 link "$CONFIGS/ghostty/config"   "$HOME/.config/ghostty/config"
+# Ghostty's macOS "Settings" menu opens the Library path, not XDG — symlink it too
+# so editing from either location reaches the tracked file.
+link "$CONFIGS/ghostty/config"   "$HOME/Library/Application Support/com.mitchellh.ghostty/config"
 link "$CONFIGS/git/ignore"       "$HOME/.config/git/ignore"
 link "$CONFIGS/nvim"             "$HOME/.config/nvim"
 link "$CONFIGS/ssh/allowed_signers" "$HOME/.ssh/allowed_signers"
