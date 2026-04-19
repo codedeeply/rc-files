@@ -33,47 +33,13 @@ zinit wait lucid light-mode for \
 # Host config (.allrc, .mbprc, .posthostrc via .thisservrc).
 source $HOME/configs/custom/.thisservrc
 
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Prompt
 eval "$(starship init zsh)"
 
-# nvm
-export NVM_DIR="$HOME/.nvm"
- [ -s "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" ] && \. "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" # This loads nvm
- [ -s "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" ] && \. "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
-
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+# Runtime versions (replaces nvm + pyenv)
+eval "$(mise activate zsh)"
 
 # bun completions (interactive only)
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
-
-# Claude Code - always use Node 20 (Node 21 has SSE bug)
-alias claude="/Users/sam/.nvm/versions/node/v20.19.6/bin/claude"
