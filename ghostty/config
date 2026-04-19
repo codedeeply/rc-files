@@ -1,0 +1,30 @@
+# Ghostty config — Catppuccin Mocha stack (tmux/nvim/bat/delta match).
+
+# ─── Appearance ─────────────────────────────────────────────────────
+theme = Catppuccin Mocha
+font-family = JetBrainsMono Nerd Font
+font-size = 13
+font-feature = +calt
+font-feature = +liga
+cursor-style = block
+cursor-style-blink = false
+background-opacity = 0.97
+background-blur-radius = 20
+
+# ─── Window ─────────────────────────────────────────────────────────
+window-padding-x = 10
+window-padding-y = 10
+window-save-state = always
+macos-titlebar-style = tabs
+macos-option-as-alt = true
+
+# ─── Shell / Scrollback ─────────────────────────────────────────────
+shell-integration = zsh
+shell-integration-features = cursor,sudo,title
+scrollback-limit = 100000
+copy-on-select = clipboard
+
+# ─── Keybinds ───────────────────────────────────────────────────────
+keybind = cmd+k=clear_screen
+keybind = cmd+shift+k=reset
+keybind = cmd+enter=toggle_fullscreen

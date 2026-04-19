@@ -1,0 +1,31 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Editors / IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.nvim.lua
+.nvim/
+
+# Environments / secrets
+.env.local
+.env.*.local
+
+# Tool caches
+node_modules/.cache
+.turbo/
+.next/cache/
+.parcel-cache/
+.pytest_cache/
+__pycache__/
+.ruff_cache/
+.mypy_cache/
+
+# Claude Code local settings (user-specific, shouldn't be committed)
+**/.claude/settings.local.json
