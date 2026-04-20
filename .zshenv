@@ -21,3 +21,6 @@ export PATH
 # Tool-specific env
 export BUN_INSTALL="$HOME/.bun"
 export PNPM_HOME="$HOME/Library/pnpm"
+
+# 1Password SSH agent — served from the 1P.app socket; git/ssh/gh honor this var.
+export SSH_AUTH_SOCK="$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"

@@ -56,7 +56,8 @@ configs/
 | Terminal | Ghostty | `ghostty/config` symlinked |
 | Multiplexer | tmux + TPM | precmd-based auto-start, catppuccin theme |
 | Diff viewer | delta | Wired via `gitconfig` `core.pager` |
-| Commit signing | SSH ed25519 | `~/.ssh/git_signing_ed25519` key; `allowed_signers` tracked here |
+| Commit signing | SSH ed25519 | Key lives in 1Password (SSH vault); `gpg.ssh.program = op-ssh-sign` in `gitconfig`; `allowed_signers` tracked here |
+| SSH agent | 1Password | Agent socket exported in `.zshenv` as `SSH_AUTH_SOCK`; vault authorization in `~/.config/1Password/ssh/agent.toml` (not tracked — per-machine) |
 
 ## Reproducibility scripts
 
