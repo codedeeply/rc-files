@@ -8,8 +8,8 @@ font-feature = +calt
 font-feature = +liga
 cursor-style = block
 cursor-style-blink = false
-background-opacity = 0.97
-background-blur-radius = 20
+background-opacity = 0.75
+background-blur-radius = 35
 
 # ─── Window ─────────────────────────────────────────────────────────
 window-padding-x = 10
