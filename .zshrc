@@ -50,3 +50,15 @@ eval "$(mise activate zsh)"
 if [[ -n "$GHOSTTY_RESOURCES_DIR" && -z "$GHOSTTY_SHELL_FEATURES" ]]; then
   source "$GHOSTTY_RESOURCES_DIR/shell-integration/zsh/ghostty-integration" 2>/dev/null
 fi
+
+# zoxide must init LAST so its chpwd/precmd hooks register after starship and
+# mise; zoxide's `_ZO_DOCTOR` warns otherwise. Gated by the same CLITOOLS_ON_STARTUP
+# flag as the rest of the modern CLI tooling.
+if [[ "$CLITOOLS_ON_STARTUP" == "true" ]]; then
+  if command -v zoxide &>/dev/null; then
+    eval "$(zoxide init zsh)"
+    alias cd='z'
+  else
+    zsh_load_msg 1 "zoxide not found. Install: brew install zoxide"
+  fi
+fi

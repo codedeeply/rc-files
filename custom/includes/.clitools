@@ -22,13 +22,8 @@ else
   zsh_load_msg 1 "fd not found. Install: brew install fd"
 fi
 
-# ── zoxide (cd replacement) ────────────────────────────────────────
-if command -v zoxide &> /dev/null; then
-  eval "$(zoxide init zsh)"
-  alias cd='z'
-else
-  zsh_load_msg 1 "zoxide not found. Install: brew install zoxide"
-fi
+# zoxide is initialized at the end of ~/.zshrc instead of here so its chpwd
+# hook registers after starship/mise — zoxide's doctor warns otherwise.
 
 # ── dust (du replacement) ──────────────────────────────────────────
 if command -v dust &> /dev/null; then
